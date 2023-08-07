@@ -13,6 +13,8 @@ A continuacion se ve el modelo EER que diseñe, para luego escribir el script en
     CREATE DATABASE tienda
 
   -- -----------------------------------------------------------
+<details>
+    <summary> <b>Tablas</b> </summary>
 -- Creacion de tabla Proveedores
 
     CREATE TABLE Proveedores(
@@ -53,5 +55,5 @@ A continuacion se ve el modelo EER que diseñe, para luego escribir el script en
     CONSTRAINT FK_cod_orden FOREIGN KEY(cod_orden) REFERENCES Orden_de_compra(cod_orden),
     CONSTRAINT FK_cod_producto FOREIGN KEY(cod_producto) REFERENCES Producto(cod_producto) )
 
-
+</details>
 
