@@ -12,11 +12,48 @@ A continuacion se ve el modelo EER que diseñe, para luego escribir el script en
 ## Script
     CREATE DATABASE tienda
 
+  -- -----------------------------------------------------------
+-- Creacion de tabla Proveedores
+
     CREATE TABLE Proveedores(
     cod_proovedor INT PRIMARY KEY NOT NULL IDENTITY(1,1),
     nombre VARCHAR(40),
     direccion VARCHAR(50),
     ciudad VARCHAR(50),
     telefono VARCHAR(20))
+
+-- -----------------------------------------------------------
+-- Creacion de tabla Producto - Por Pablo Nogueras
+
+    CREATE TABLE Producto(
+    cod_producto INT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    desc_producto VARCHAR(200),
+    precio_costo INT,
+    precio_venta INT,
+    precio_mercado INT)
+
+-- -----------------------------------------------------------
+-- Creacion de tabla Orden de compra - Por Pablo Nogueras
+
+    CREATE TABLE Orden_de_compra(
+    cod_orden INT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    fecha_emision_orden DATE,
+    fecha_entrega DATE,
+    cod_proveedor INT,
+    CONSTRAINT FK_cod_proveedor FOREIGN KEY(cod_proveedor) REFERENCES Proveedores(cod_proovedor) )
+
+-- -----------------------------------------------------------
+-- Creacion de tabla Items orden compra - Por Pablo Nogueras
+
+CREATE TABLE Items_orden_compra(
+cod_orden INT,
+cantidad INT,
+cod_producto INT,
+precio_real FLOAT,
+-- Declaracion de FOREIGN KEYS
+CONSTRAINT FK_cod_orden FOREIGN KEY(cod_orden) REFERENCES Orden_de_compra(cod_orden),
+CONSTRAINT FK_cod_producto FOREIGN KEY(cod_producto) REFERENCES Producto(cod_producto) )
+
+-- -------------------------------------------------------------------------------------
 
 
