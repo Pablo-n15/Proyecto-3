@@ -23,7 +23,7 @@ A continuacion se ve el modelo EER que diseñe, para luego escribir el script en
     telefono VARCHAR(20))
 
 -- -----------------------------------------------------------
--- Creacion de tabla Producto - Por Pablo Nogueras
+-- Creacion de tabla Producto 
 
     CREATE TABLE Producto(
     cod_producto INT PRIMARY KEY NOT NULL IDENTITY(1,1),
@@ -33,7 +33,7 @@ A continuacion se ve el modelo EER que diseñe, para luego escribir el script en
     precio_mercado INT)
 
 -- -----------------------------------------------------------
--- Creacion de tabla Orden de compra - Por Pablo Nogueras
+-- Creacion de tabla Orden de compra
 
     CREATE TABLE Orden_de_compra(
     cod_orden INT PRIMARY KEY NOT NULL IDENTITY(1,1),
@@ -43,17 +43,15 @@ A continuacion se ve el modelo EER que diseñe, para luego escribir el script en
     CONSTRAINT FK_cod_proveedor FOREIGN KEY(cod_proveedor) REFERENCES Proveedores(cod_proovedor) )
 
 -- -----------------------------------------------------------
--- Creacion de tabla Items orden compra - Por Pablo Nogueras
+-- Creacion de tabla Items orden compra 
 
-CREATE TABLE Items_orden_compra(
-cod_orden INT,
-cantidad INT,
-cod_producto INT,
-precio_real FLOAT,
--- Declaracion de FOREIGN KEYS
-CONSTRAINT FK_cod_orden FOREIGN KEY(cod_orden) REFERENCES Orden_de_compra(cod_orden),
-CONSTRAINT FK_cod_producto FOREIGN KEY(cod_producto) REFERENCES Producto(cod_producto) )
+    CREATE TABLE Items_orden_compra(
+    cod_orden INT,
+    cantidad INT,
+    cod_producto INT,
+    precio_real FLOAT,
+    CONSTRAINT FK_cod_orden FOREIGN KEY(cod_orden) REFERENCES Orden_de_compra(cod_orden),
+    CONSTRAINT FK_cod_producto FOREIGN KEY(cod_producto) REFERENCES Producto(cod_producto) )
 
--- -------------------------------------------------------------------------------------
 
 
