@@ -12,7 +12,6 @@ A continuacion se ve el modelo EER que diseñe, para luego escribir el script en
 ## Script
     CREATE DATABASE tienda
 
-  -- -----------------------------------------------------------
 <details>
     <summary> <b>Tablas</b> </summary>
 -- Creacion de tabla Proveedores
